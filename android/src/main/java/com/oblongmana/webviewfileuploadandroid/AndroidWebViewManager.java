@@ -1,13 +1,9 @@
 package com.oblongmana.webviewfileuploadandroid;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.os.Environment;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.CookieManager;
@@ -95,11 +91,6 @@ public class AndroidWebViewManager extends ReactWebViewManager {
             public void onDownloadStart(String url, String userAgent,
                     String contentDisposition, String mimetype,
                     long contentLength) {
-
-                if (ContextCompat.checkSelfPermission(mActivity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
-                    return;
-                }
 
                 String fileName = URLUtil.guessFileName(url,contentDisposition,mimetype);
                 String downloadMessage = "Downloading " + fileName;

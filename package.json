@@ -43,5 +43,5 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
-  "version": "0.4.2"
+  "version": "0.4.3"
 }

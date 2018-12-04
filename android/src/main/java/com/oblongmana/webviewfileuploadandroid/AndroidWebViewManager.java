@@ -139,7 +139,11 @@ public class AndroidWebViewManager extends ReactWebViewManager {
         }
         //jhwang edit end
 
-
+        // cookie delay
+        if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ) {
+            CookieManager cookieManager = CookieManager.getInstance();
+            cookieManager.setAcceptThirdPartyCookies( view, true );
+        }
 
         return view;
     }

@@ -38,7 +38,7 @@ public class AndroidWebViewManager extends ReactWebViewManager {
         return "AndroidWebView";
     }
 
-    protected static boolean hasPermission(Activity context, String permission) {
+    protected static boolean hasPermission(Context context, String permission) {
         //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permission != null) {
             if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
                 return false;
@@ -105,7 +105,7 @@ public class AndroidWebViewManager extends ReactWebViewManager {
                     String contentDisposition, String mimetype,
                     long contentLength) {
 
-                if (AndroidWebViewManager.hasPermission(mActivity, Manifest.permission.WRITE_EXTERNAL_STORAGE) == false) {
+                if (AndroidWebViewManager.hasPermission(module.getActivity().getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == false) {
                     return;
                 }
 

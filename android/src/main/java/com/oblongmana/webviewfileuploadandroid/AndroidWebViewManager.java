@@ -39,11 +39,11 @@ public class AndroidWebViewManager extends ReactWebViewManager {
     }
 
     protected static boolean hasPermission(Activity context, String permission) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permission != null) {
+        //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permission != null) {
             if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
                 return false;
             }
-        }
+        //}
         return true;
     }
 
